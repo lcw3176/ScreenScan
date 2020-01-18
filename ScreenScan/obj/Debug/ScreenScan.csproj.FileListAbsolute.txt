@@ -1,0 +1,8 @@
+D:\project\Cs\ScreenScan\ScreenScan\bin\Debug\ScreenScan.exe.config
+D:\project\Cs\ScreenScan\ScreenScan\bin\Debug\ScreenScan.exe
+D:\project\Cs\ScreenScan\ScreenScan\bin\Debug\ScreenScan.pdb
+D:\project\Cs\ScreenScan\ScreenScan\obj\Debug\ScreenScan.ScreenScan.resources
+D:\project\Cs\ScreenScan\ScreenScan\obj\Debug\ScreenScan.Properties.Resources.resources
+D:\project\Cs\ScreenScan\ScreenScan\obj\Debug\ScreenScan.csproj.GenerateResource.cache
+D:\project\Cs\ScreenScan\ScreenScan\obj\Debug\ScreenScan.exe
+D:\project\Cs\ScreenScan\ScreenScan\obj\Debug\ScreenScan.pdb

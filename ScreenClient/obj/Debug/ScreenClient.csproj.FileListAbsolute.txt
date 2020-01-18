@@ -1,0 +1,8 @@
+D:\project\Cs\ScreenScan\ScreenClient\bin\Debug\ScreenClient.exe.config
+D:\project\Cs\ScreenScan\ScreenClient\bin\Debug\ScreenClient.exe
+D:\project\Cs\ScreenScan\ScreenClient\bin\Debug\ScreenClient.pdb
+D:\project\Cs\ScreenScan\ScreenClient\obj\Debug\ScreenClient.Form1.resources
+D:\project\Cs\ScreenScan\ScreenClient\obj\Debug\ScreenClient.Properties.Resources.resources
+D:\project\Cs\ScreenScan\ScreenClient\obj\Debug\ScreenClient.csproj.GenerateResource.cache
+D:\project\Cs\ScreenScan\ScreenClient\obj\Debug\ScreenClient.exe
+D:\project\Cs\ScreenScan\ScreenClient\obj\Debug\ScreenClient.pdb
