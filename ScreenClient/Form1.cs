@@ -6,115 +6,91 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ScreenClient
 {
     public partial class Form1 : Form
     {
-        Socket socket;
-        byte[] Byte;
-        byte[] start = new byte[10];
-        
-        // 시작, 정지를 알리는 flag
-        bool flag = false;
-
+        private Socket socket;
+        private bool isRun = false;
 
         public Form1()
         {
             InitializeComponent();
+            socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+            socket.Connect(new IPEndPoint(IPAddress.Loopback, 3000));
+
+            Task.Run(() => WaitCommand());
         }
 
-        private void wait_Connection()
+
+        private void WaitCommand()
         { 
 
             while (true)
             {
                 try
                 {
-                    // 연결 대기
-                    socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
-                    socket.Connect(new IPEndPoint(IPAddress.Loopback, 3000));
-                    socket.BeginReceive(start, 0, start.Length, SocketFlags.None, new AsyncCallback(receiveMsg), null);
-                    break;
+                    byte[] command = new byte[2];
+                    socket.Receive(command);
+
+                    if(Encoding.ASCII.GetString(command) == "st")
+                    {
+                        isRun = false;
+                    }
+
+                    if(Encoding.ASCII.GetString(command) == "go")
+                    {
+                        isRun = true;
+                        Task.Run(() => SendToServer());
+                    }
+
                 }
 
-                catch (SocketException)
+                catch (Exception ex)
                 {
-                    // 연결 대기
+                    MessageBox.Show(ex.ToString());
+                    break;
+                }
+            }
+        }
+
+        private void SendToServer()
+        {
+            while(isRun)
+            {
+                try
+                {
+                    byte[] imageByte = screenShot();
+
+                    if(imageByte.Length != 1)
+                    {
+                        byte[] imageSize = BitConverter.GetBytes(imageByte.Length);
+                        socket.Send(imageSize, 0, 4, SocketFlags.None);
+
+                        int offset = 0;
+
+                        while(offset < imageByte.Length)
+                        {
+                            offset += socket.Send(imageByte, offset, imageByte.Length - offset, SocketFlags.None);
+                        }
+                        
+                    }
+                }
+
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex);
                     continue;
                 }
             }
         }
 
-        private void receiveMsg(IAsyncResult ar)
-        {
-            try
-            {
-                socket.EndReceive(ar);
+      
 
-                if (Encoding.Default.GetString(start).Substring(0, 2) == "go")
-                {
-                    // 시작
-                    Array.Clear(start, 0, start.Length);
-                    socket.BeginReceive(start, 0, start.Length, SocketFlags.None, new AsyncCallback(receiveMsg), null);
-                    Byte = screenShot();
-                    socket.BeginSend(Byte, 0, Byte.Length, SocketFlags.None, new AsyncCallback(screenCallback), null);
-                    flag = true;
-                }
-
-                else
-                {
-                    // 중지
-                    Array.Clear(start, 0, start.Length);
-                    socket.BeginReceive(start, 0, start.Length, SocketFlags.None, new AsyncCallback(receiveMsg), null);
-                    flag = false;
-                }
-
-            }
-
-            catch(SocketException)
-            {
-                socket.Dispose();
-                socket.Close();
-                this.Invoke(new Action(delegate ()
-                {
-                    Close();
-                }));
-
-            } 
-        }
-
-        public void screenCallback(IAsyncResult ar)
-        {
-            // 캡쳐된 화면 전송
-            // flag에 따라 캡쳐, 전송이 작동
-
-            if(flag == true)
-            {
-                try
-                {
-                    socket.EndSend(ar);
-                    Byte = screenShot();
-                    socket.BeginSend(Byte, 0, Byte.Length, SocketFlags.None, new AsyncCallback(screenCallback), null);
-                }
-
-                catch
-                {
-                    socket.Dispose();
-                    socket.Close();
-                    this.Invoke(new Action(delegate ()
-                    {
-                        Close();
-                    }));
-                }
-            }
-
-            else
-            {
-                return;
-            }
-        }
+ 
 
         public byte[] screenShot()
         {
@@ -142,16 +118,21 @@ namespace ScreenClient
                     g.CopyFromScreen(source, new Point(0, 0), new Size(width, height));
                     bitmap.Save(ms, ImageFormat.Jpeg);
                     Byte = ms.ToArray();
+
                     return Byte;
                 }
 
                 catch (Win32Exception)
                 {
                     // 작업관리자 띄울 시 예외처리
-                    Bitmap exception = new Bitmap(@".\exception.png");
-                    exception.Save(ms, ImageFormat.Jpeg);
-                    Byte = ms.ToArray();
+                    Byte = new byte[1];
+
                     return Byte;
+                }
+
+                finally
+                {
+                    g.Dispose();
                 }
 
             }
@@ -159,12 +140,6 @@ namespace ScreenClient
            
         }
 
-        private void client_Load(object sender, EventArgs e)
-        {
-            // 폼 로드, 연결 시작
-            Visible = false;
-            ShowInTaskbar = false;
-            wait_Connection();
-        }
+
     }
 }

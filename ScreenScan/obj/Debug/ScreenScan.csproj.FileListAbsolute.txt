@@ -6,3 +6,13 @@ D:\project\Cs\ScreenScan\ScreenScan\obj\Debug\ScreenScan.Properties.Resources.re
 D:\project\Cs\ScreenScan\ScreenScan\obj\Debug\ScreenScan.csproj.GenerateResource.cache
 D:\project\Cs\ScreenScan\ScreenScan\obj\Debug\ScreenScan.exe
 D:\project\Cs\ScreenScan\ScreenScan\obj\Debug\ScreenScan.pdb
+C:\Users\THE-LEE\Desktop\ScreenScan\ScreenScan\bin\Debug\ScreenScan.exe.config
+C:\Users\THE-LEE\Desktop\ScreenScan\ScreenScan\bin\Debug\ScreenScan.exe
+C:\Users\THE-LEE\Desktop\ScreenScan\ScreenScan\bin\Debug\ScreenScan.pdb
+C:\Users\THE-LEE\Desktop\ScreenScan\ScreenScan\obj\Debug\ScreenScan.csprojAssemblyReference.cache
+C:\Users\THE-LEE\Desktop\ScreenScan\ScreenScan\obj\Debug\ScreenScan.ScreenScan.resources
+C:\Users\THE-LEE\Desktop\ScreenScan\ScreenScan\obj\Debug\ScreenScan.Properties.Resources.resources
+C:\Users\THE-LEE\Desktop\ScreenScan\ScreenScan\obj\Debug\ScreenScan.csproj.GenerateResource.cache
+C:\Users\THE-LEE\Desktop\ScreenScan\ScreenScan\obj\Debug\ScreenScan.csproj.CoreCompileInputs.cache
+C:\Users\THE-LEE\Desktop\ScreenScan\ScreenScan\obj\Debug\ScreenScan.exe
+C:\Users\THE-LEE\Desktop\ScreenScan\ScreenScan\obj\Debug\ScreenScan.pdb
