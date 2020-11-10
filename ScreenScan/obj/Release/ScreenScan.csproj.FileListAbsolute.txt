@@ -1,8 +1,0 @@
-C:\Users\THE-LEE\Desktop\ScreenScan.exe.config
-C:\Users\THE-LEE\Desktop\ScreenScan.exe
-C:\Users\THE-LEE\Desktop\ScreenScan.pdb
-D:\project\Cs\ScreenScan\ScreenScan\obj\Release\ScreenScan.ScreenScan.resources
-D:\project\Cs\ScreenScan\ScreenScan\obj\Release\ScreenScan.Properties.Resources.resources
-D:\project\Cs\ScreenScan\ScreenScan\obj\Release\ScreenScan.csproj.GenerateResource.cache
-D:\project\Cs\ScreenScan\ScreenScan\obj\Release\ScreenScan.exe
-D:\project\Cs\ScreenScan\ScreenScan\obj\Release\ScreenScan.pdb

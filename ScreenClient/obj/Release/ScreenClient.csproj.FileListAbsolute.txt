@@ -1,8 +1,0 @@
-C:\Users\THE-LEE\Desktop\ScreenClient.exe.config
-C:\Users\THE-LEE\Desktop\ScreenClient.exe
-C:\Users\THE-LEE\Desktop\ScreenClient.pdb
-D:\project\Cs\ScreenScan\ScreenClient\obj\Release\ScreenClient.Form1.resources
-D:\project\Cs\ScreenScan\ScreenClient\obj\Release\ScreenClient.Properties.Resources.resources
-D:\project\Cs\ScreenScan\ScreenClient\obj\Release\ScreenClient.csproj.GenerateResource.cache
-D:\project\Cs\ScreenScan\ScreenClient\obj\Release\ScreenClient.exe
-D:\project\Cs\ScreenScan\ScreenClient\obj\Release\ScreenClient.pdb
