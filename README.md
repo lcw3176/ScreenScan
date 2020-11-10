@@ -9,6 +9,11 @@
 * 프로그램 실행 시 서버와 바로 연결
 * 서버에서 연결을 종료하면 클라이언트 프로그램도 종료
 
+
+### 2020.11.11 코드 리팩토링
+* 기존에 이미지를 받아오기 위해 바이트 변수 크기를 너무 크게 선언한 것 수정
+* 비동기 -> 동기 방식으로 수정
+
 ### 작동 모습
 ![서버](https://user-images.githubusercontent.com/59993347/72676287-e784ba80-3ad2-11ea-98fa-b09ed0b73f0f.png)
 ![작동](https://user-images.githubusercontent.com/59993347/72676288-e784ba80-3ad2-11ea-80bd-0c9a37faf2db.png)
